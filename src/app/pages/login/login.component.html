@@ -1,0 +1,20 @@
+<div class="flex h-screen justify-center px-4 items-center">
+  <form class="flex flex-col gap-2 w-[300px]" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+    <img src="assets/logo/ctr-logo.svg" alt="Contler" />
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+
+    <button mat-raised-button>Login</button>
+    @if (errorState().hasError) {
+      <span class="text-xs text-red-500">{{ errorState().error }}</span>
+    }
+  </form>
+</div>

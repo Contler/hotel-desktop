@@ -9,10 +9,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'app-electron-angular';
-
-  showNotification() {
-    (window as any)['electron'].sendNotifications('Hello', 'World');
-  }
-}
+export class AppComponent {}

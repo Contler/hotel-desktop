@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+:root {
+  --mdc-protected-button-label-text-color: #fff;
+  --mdc-protected-button-container-color: #000;
+}
