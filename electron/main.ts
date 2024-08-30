@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { listenToFCMMessages, registerFCMToken } from "./fcm";
+import path from 'path';
 
 let mainWindow: BrowserWindow;
 
@@ -8,12 +9,17 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     },
   });
 
-  mainWindow.loadURL("http://localhost:4200");
+  if (process.env["NODE_ENV"] === 'development') {
+    mainWindow.loadURL('http://localhost:4200');
+  } else {
+    mainWindow.loadFile('./build/browser/index.html');
+  }
 };
 
 app.on("ready", createWindow);
