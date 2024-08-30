@@ -12,7 +12,10 @@
     "dev:ng": "ng serve",
     "dev:build": "webpack --mode development --watch",
     "dev:electron": "wait-on http://localhost:4200 dist-electron/main.js && electronmon .",
-    "electron:build": "npm run build && webpack --mode production && electron-builder build"
+    "electron:build:qa:mac": "npm run build -- -c development && webpack --mode production && electron-builder build --mac",
+    "electron:build:prod:mac": "npm run build && webpack --mode production && electron-builder build --mac",
+    "electron:build:qa:win": "npm run build -- -c development && webpack --mode production && electron-builder build --win --target portable",
+    "electron:build:prod:win": "npm run build && webpack --mode production && electron-builder build --win --target portable"
   },
   "private": true,
   "dependencies": {
@@ -83,6 +86,13 @@
         "dmg",
         "zip"
       ]
+    },
+    "win": {
+      "target": [
+        "portable",
+        "zip"
+      ],
+      "icon": "build/icon.ico"
     }
   }
 }
