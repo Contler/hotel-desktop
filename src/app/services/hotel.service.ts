@@ -19,4 +19,9 @@ export class HotelService {
     const url = new URL(`/employer/${uid}`,this.url);
     return this.http.get<IEmployer>(url.href);
   }
+
+  updateEmployerDesktopToken(token: string, employerId: string) {
+    const url = new URL('/employer/set-desktop-token', this.url);
+    return this.http.post(url.href, { token, employerId });
+  }
 }

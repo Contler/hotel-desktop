@@ -65,7 +65,7 @@ export class LoginComponent {
       );
       const tokenResult = await auth.user?.getIdTokenResult();
       const { role } = tokenResult.claims;
-      if (role === 'admin' || role === 'administrator') {
+      if (role === 'admin' || role === 'administrator' || role === 'chief') {
         this.router.navigate(['home']);
       } else {
         signOut(this.authFirebase);
