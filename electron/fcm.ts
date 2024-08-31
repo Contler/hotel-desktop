@@ -49,9 +49,10 @@ export function listenToFCMMessages(acg: {id: bigint, securityToken: bigint}, au
   client.on('message-data', (data) => {
     if (Notification.isSupported()) {
       let notification = new Notification({
-        title: data.notification?.title,
-        body: data.notification?.body
+        title: data.data?.['title'] ?? data.notification?.title,
+        body: data.data?.['body'] ?? data.notification?.body
       });
+
       notification.show();
     }
   });
