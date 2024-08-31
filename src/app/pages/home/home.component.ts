@@ -51,7 +51,4 @@ export class HomeComponent {
       });
   }
 
-  signAuth() {
-    signOut(this.authFirebase);
-  }
 }
