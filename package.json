@@ -14,8 +14,8 @@
     "dev:electron": "wait-on http://localhost:4200 dist-electron/main.js && electronmon .",
     "electron:build:qa:mac": "npm run build -- -c development && webpack --mode production && electron-builder build --mac",
     "electron:build:prod:mac": "npm run build && webpack --mode production && electron-builder build --mac",
-    "electron:build:qa:win": "npm run build -- -c development && webpack --mode production && electron-builder build --win --target portable",
-    "electron:build:prod:win": "npm run build && webpack --mode production && electron-builder build --win --target portable"
+    "electron:build:qa:win": "npm run build -- -c development && webpack --mode production && electron-builder build --win",
+    "electron:build:prod:win": "npm run build && webpack --mode production && electron-builder build --win"
   },
   "private": true,
   "dependencies": {
@@ -89,10 +89,9 @@
     },
     "win": {
       "target": [
-        "portable",
+        "nsis",
         "zip"
-      ],
-      "icon": "build/icon.ico"
+      ]
     }
   }
 }

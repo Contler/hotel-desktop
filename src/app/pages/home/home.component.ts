@@ -39,6 +39,7 @@ export class HomeComponent {
       )
       .subscribe((employer) => {
         window.electron.registerFCMToken().then(async (token: string) => {
+          console.log(token);
           if (employer.role === 'admin' || employer.role === 'administrator') {
             const ref = doc(this.firestore, 'hotelConfig', employer.hotel.uid);
             updateDoc(ref, { notificationTokens: arrayUnion(token) });
