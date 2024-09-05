@@ -47,3 +47,6 @@ dist-electron
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+.angular
+.env

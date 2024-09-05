@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev": "concurrently \"npm run dev:build\" \"npm run dev:ng\" \"npm run dev:electron\"",
-    "dev:ng": "ng serve",
+    "dev:ng": "ng serve -c production",
     "dev:build": "webpack --mode development --watch",
     "dev:electron": "wait-on http://localhost:4200 dist-electron/main.js && electronmon .",
     "electron:build:qa:mac": "npm run build -- -c development && webpack --mode production && electron-builder build --mac",
@@ -31,6 +31,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@aracna/fcm": "^1.0.28",
+    "dotenv": "^16.4.5",
     "firebase": "^10.13.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -82,12 +83,14 @@
     ],
     "mac": {
       "category": "public.app-category.productivity",
+      "icon": "assets/logo.icns",
       "target": [
         "dmg",
         "zip"
       ]
     },
     "win": {
+      "icon": "assets/logo.ico",
       "target": [
         "nsis",
         "zip"

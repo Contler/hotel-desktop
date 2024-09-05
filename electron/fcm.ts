@@ -1,5 +1,7 @@
 import { createFcmECDH, generateFcmAuthSecret, registerToFCM, FcmClient, FcmRegistration } from '@aracna/fcm';
 import { Notification } from 'electron';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export async function registerFCMToken() {
   const ecdh = createFcmECDH();
@@ -13,11 +15,11 @@ export async function registerFCMToken() {
         publicKey: ecdh.getPublicKey()
       },
       firebase: {
-        apiKey: 'AIzaSyC7-kFPHWTHaKaP2WFjIXWoAaf9QfSyr8Q',
-        appID: '1:424830318314:web:aa057126d096f3d747c993',
-        projectID: 'contler-dev'
+        apiKey: process.env['API_KEY'] as string,
+        appID: process.env['APP_ID'] as string,
+        projectID: process.env['PROJECT_ID'] as string
       },
-      vapidKey: 'BEaH17bewsmjQEDAmDgDi5B3pfHuNeuNvYTK25Wa8AP7tsVOy8jiP28uUvGh8r04PI93vbRaoIXOmgmmaNeIiLA'
+      vapidKey: process.env['VAPID_KEY'] as string
     });
     return {
       token: (registration as FcmRegistration).token,
