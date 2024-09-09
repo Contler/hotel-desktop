@@ -1,7 +1,11 @@
-<div class="flex h-screen justify-center px-4 items-center">
+<div class="flex h-screen justify-center px-4 items-center flex-col">
   @if (isLoading()) {
     <mat-spinner></mat-spinner>
+  } @else if(isError()) {
+    <p>We have a error trying to connect notification system</p>
+    <button class="mt-4" mat-raised-button (click)="logOut()">LogOut</button>
   } @else {
-    <p>You are ready to receive notifications</p>
+    <p>You are ready to receive notifications from {{hotel?.name}}</p>
+    <button class="mt-4" mat-raised-button (click)="logOut()">LogOut</button>
   }
 </div>

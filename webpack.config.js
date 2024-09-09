@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode === 'development';
@@ -48,6 +49,7 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode),
       }),
+      new Dotenv()
     ],
   },
   {
@@ -81,6 +83,7 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode),
       }),
+      new Dotenv()
     ],
   }
   ]

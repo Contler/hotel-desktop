@@ -25,7 +25,7 @@ export interface IEmployer {
   leaderSpecialZone: any[]; // Igual que con `leaderZones`.
 }
 
-interface IHotel {
+export interface IHotel {
   uid: string;
   name: string;
   color: string;

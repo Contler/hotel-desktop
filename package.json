@@ -48,6 +48,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
+    "dotenv-webpack": "^8.1.0",
     "electron": "^32.0.1",
     "electron-builder": "^24.13.3",
     "electronmon": "^2.0.3",
