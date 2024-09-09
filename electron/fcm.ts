@@ -8,7 +8,7 @@ export async function registerFCMToken() {
   const authSecret = generateFcmAuthSecret();
 
   try {
-    const registration = await registerToFCM({
+    const tokenData = {
       appID: 'com.contler.hotel',
       ece: {
         authSecret: authSecret,
@@ -20,7 +20,9 @@ export async function registerFCMToken() {
         projectID: process.env['PROJECT_ID'] as string
       },
       vapidKey: process.env['VAPID_KEY'] as string
-    });
+    }
+    console.log(tokenData);
+    const registration = await registerToFCM(tokenData);
     return {
       token: (registration as FcmRegistration).token,
       acg: {
