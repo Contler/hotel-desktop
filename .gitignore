@@ -50,3 +50,4 @@ dist-electron
 
 .angular
 .env
+*.p8

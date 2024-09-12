@@ -41,6 +41,7 @@
     "@angular-devkit/build-angular": "^17.0.8",
     "@angular/cli": "^17.0.8",
     "@angular/compiler-cli": "^17.0.0",
+    "@electron/notarize": "^2.4.0",
     "@electron/remote": "^2.1.2",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
@@ -72,6 +73,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "build": {
+    "afterSign": "notarize.js",
     "appId": "com.contler.hotel",
     "productName": "Contler",
     "files": [
@@ -88,7 +90,9 @@
       "target": [
         "dmg",
         "zip"
-      ]
+      ],
+      "hardenedRuntime": true,
+      "identity": "Mateo  Bolívar Sierra (9XDQDQWX38)"
     },
     "win": {
       "icon": "assets/logo.ico",
